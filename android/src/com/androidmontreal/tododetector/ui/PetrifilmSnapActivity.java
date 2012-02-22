@@ -36,6 +36,37 @@ public class PetrifilmSnapActivity extends Activity implements PictureCallback {
 		setContentView(R.layout.petrifilm_snap_view);
 	}
 
+
+    @Override
+	protected void onDestroy() {
+    	Log.d(TAG, "=onDestroy=");
+		super.onDestroy();
+	}
+
+	@Override
+	public void onLowMemory() {
+		Log.d(TAG, "===onLowMemory===");
+		super.onLowMemory();
+	}
+
+	@Override
+	protected void onPause() {
+		Log.d(TAG, "====onPause====");
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		Log.d(TAG, "==onResume==");
+		super.onResume();
+	}
+
+	@Override
+	protected void onStop() {
+		Log.d(TAG, "==onStop==");
+		super.onStop();
+	}
+
 	public void onCaptureClick(View v) {
 		Button capture = (Button) findViewById(R.id.capture);
 		capture.setEnabled(false);

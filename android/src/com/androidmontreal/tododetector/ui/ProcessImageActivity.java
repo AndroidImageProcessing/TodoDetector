@@ -10,11 +10,13 @@ import com.androidmontreal.tododetector.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 public class ProcessImageActivity extends Activity implements Runnable {
 	String inPath;
 	String outPath;
-
+	private static final String TAG = "Image Processing";
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,36 @@ public class ProcessImageActivity extends Activity implements Runnable {
 		
 		// Start lengthy operation in a background thread
 		new Thread(this).start();
+	}
+
+    @Override
+	protected void onDestroy() {
+    	Log.d(TAG, "=onDestroy=");
+		super.onDestroy();
+	}
+
+	@Override
+	public void onLowMemory() {
+		Log.d(TAG, "===onLowMemory===");
+		super.onLowMemory();
+	}
+
+	@Override
+	protected void onPause() {
+		Log.d(TAG, "====onPause====");
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		Log.d(TAG, "==onResume==");
+		super.onResume();
+	}
+
+	@Override
+	protected void onStop() {
+		Log.d(TAG, "==onStop==");
+		super.onStop();
 	}
 
 	public void run() {
