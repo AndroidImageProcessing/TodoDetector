@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class PetrifilmSnapActivity extends Activity implements PictureCallback {
-	private static final String TAG = "Sample::Activity";
+	private static final String TAG = "Image Processing";
 	Camera camera;
 
 	public PetrifilmSnapActivity() {
